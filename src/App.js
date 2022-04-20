@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeForm from "./components/HomeForm";
 import CalendaryForm from "./components/CalendaryForm";
 import ContactForm from "./components/ContactForm";
@@ -9,24 +9,16 @@ import NavBar from './components/navbar/NavBar';
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <NavBar />
 
-      <Switch>
-        <Route path="/home" component={HomeForm} exact>
-          <HomeForm />
-        </Route>
-        <Route path="/calendary" component={CalendaryForm} exact>
-          <CalendaryForm />
-        </Route>
-        <Route path="/contact" component={ContactForm} exact>
-          <ContactForm />
-        </Route>
-        <Route path="/about" component={AboutForm} exact>
-          <AboutForm />
-        </Route>
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/HomeForm" element={<HomeForm />} exact/>
+        <Route path="/CalendaryForm" element={<CalendaryForm />} exact/>
+        <Route path="/ContactForm" element={<ContactForm />} exact/>
+        <Route path="/AboutForm" element={<AboutForm />} exact/>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
